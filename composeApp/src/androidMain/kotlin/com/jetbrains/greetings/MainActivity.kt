@@ -48,4 +48,9 @@ fun CalcOperationButton(){
 
 }
 
+@Composable
+fun CalcEqualsButton(){
+
+}
+
 
