@@ -43,4 +43,9 @@ fun CalcNumericButton(){
 
 }
 
+@Composable
+fun CalcOperationButton(){
+
+}
+
 
