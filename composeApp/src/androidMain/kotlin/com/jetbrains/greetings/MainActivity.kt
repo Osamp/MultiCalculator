@@ -106,14 +106,14 @@ fun CalcView(){
                 }
                 Row {
                     CalcNumericButton(number = 0, onPress = { number -> numberPress(number) })
-                    CalcEqualsButton(onPress = { equalsPress() }))
+                    CalcEqualsButton(onPress = { equalsPress() })
                 }
             }
             Column {
-                CalcOperationButton(operation = "+", display = displayText)
-                CalcOperationButton(operation = "-", display = displayText)
-                CalcOperationButton(operation = "*", display = displayText)
-                CalcOperationButton(operation = "/", display = displayText)
+                CalcOperationButton(operation = "+", onPress = { op -> operationPress(op) })
+                CalcOperationButton(operation = "-", onPress = { op -> operationPress(op) })
+                CalcOperationButton(operation = "*", onPress = { op -> operationPress(op) })
+                CalcOperationButton(operation = "/", onPress = { op -> operationPress(op) })
             }
 
                     }
