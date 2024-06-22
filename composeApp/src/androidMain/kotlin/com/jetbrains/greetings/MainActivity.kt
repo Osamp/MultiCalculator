@@ -163,37 +163,13 @@ fun CalcOperationButton(operation: String, onPress: (operation: String) -> Unit)
 }
 
 @Composable
-fun CalcEqualsButton(display: MutableState<String>, calculator: Calculator){
+fun CalcEqualsButton(onPress: () -> Unit){
     Button(
-        onClick = {
-            if (display.value != "0") {
-                try {
-                        val expression = display.value
-                        val parts = expression.split("\\+|\\-|\\*|\\/".toRegex())
-                        if (parts.size == 2) {
-                            val operand1 = parts[0].toInt()
-                            val operand2 = parts[1].toInt()
-                            val operation = expression.replace("\\d+".toRegex(), "").trim()
-
-                            val result = when (operation) {
-                                "+" -> calculator.Add(operand1, operand2)
-                                "-" -> calculator.Subtract(operand1, operand2)
-                                "*" -> calculator.Multiply(operand1, operand2)
-                                "/" -> calculator.Divide(operand1, operand2)
-                                else -> throw IllegalArgumentException("Unknown operator")
-                            }
-                            display.value = result.toString()
-                        }
-                } catch (e: Exception) {
-                    display.value = "0"
-                }
-            }
-        },
+        onClick = { onPress() },
         modifier = Modifier.padding(4.dp)
     ) {
         Text(text = "=")
     }
-
 }
 
 
