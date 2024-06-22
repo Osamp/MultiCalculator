@@ -140,17 +140,15 @@ fun CalcDisplay(display: MutableState<String>){
             .padding(5.dp)
             .fillMaxWidth()
     )
-
 }
 
 @Composable
-fun CalcNumericButton(number: Int, display: MutableState<String>){
+fun CalcNumericButton(number: Int, onPress: (number: Int) -> Unit){
     Button(
-        onClick = { display.value += number.toString() },
+        onClick = { onPress(number) },
         modifier = Modifier.padding(4.dp)
     ) {
         Text(text = number.toString())
-
     }
 }
 
